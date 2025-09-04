@@ -51,3 +51,19 @@ docker run -p 5000:5000 fitness_test
 ```
 
 ## Open http://localhost:5000 in your browser to use the app.
+
+
+## GitHub Actions CI/CD Pipeline Overview
+
+### With every push or pull request to the repository on the main branch, GitHub Actions automatically:
+
+### - **Builds the Docker image:**
+  ### The pipeline creates a fresh Docker image of the entire application, ensuring every dependency and configuration works correctly in isolation.
+
+### - **Runs Pytest unit tests inside the Docker container:**
+  ### Using the newly built image, the pipeline starts a container and executes all unit tests, confirming both the code and the deployment environment are stable and functional.
+
+### - **Reporting:**
+  ### The workflow marks the build as successful only if all tests pass. Any failure in build or testing will mark the workflow (and commit) as failed, helping catch and fix errors early in the development process.
+
+## This guarantees code quality, repeatable environments, and reliable deliveries for the project on every code update.
